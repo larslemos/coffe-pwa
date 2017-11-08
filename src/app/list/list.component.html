@@ -2,8 +2,8 @@
     <mat-card-title> {{ coffe.name }} </mat-card-title>
     <mat-card-subtitle> Place: {{ coffe.place }}</mat-card-subtitle>
     <mat-card-actions>
-        <button mat-button><mat-icon>map</mat-icon>  </button>
-        <button mat-button><mat-icon>share</mat-icon>  </button>
+        <button (click)="goMap(coffe)" mat-button><mat-icon>map</mat-icon>  </button>
+        <button (click)="share(coffe)" mat-button><mat-icon>share</mat-icon>  </button>
         <button (click)="goDetails(coffe)" mat-button><mat-icon>list</mat-icon>  </button>
     </mat-card-actions>
 </mat-card>
