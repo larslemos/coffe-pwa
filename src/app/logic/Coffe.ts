@@ -3,6 +3,7 @@ import { TastingRating } from './TastingRating';
 
 export class Coffe {
   //properties
+  _id: string;
   // name: string;
   // place: string;
   //location: PlaceLocation

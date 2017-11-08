@@ -27,7 +27,9 @@
       <mat-card-subtitle>Overall Ratings</mat-card-subtitle>
       <mat-slider max="10" thumbLabel name="rating" [(ngModel)]="coffe.rating" tickInterval="1">
       </mat-slider>
-      <mat-slide-toggle #tastingSelector (change)="tastingRatingChanged(tastingSelector.checked)">
+
+      <mat-slide-toggle #tastingSelector [checked]="tastingEnabled"
+      (change)="tastingRatingChanged(tastingSelector.checked)">
         Tasting Ratings </mat-slide-toggle>
 
       <section id="tasting" *ngIf="tastingSelector.checked">
@@ -61,9 +63,10 @@
       </mat-input-container>
     </mat-card>
 
-    <mat-card>
+    <!-- Required for purpose of debuggin -->
+    <!-- <mat-card>
         {{ coffe | json  }}
-    </mat-card>
+    </mat-card> -->
 
     <mat-card>
       <button mat-raised-button (click)="cancel()" >Cancel</button>

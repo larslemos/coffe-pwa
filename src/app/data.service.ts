@@ -8,6 +8,15 @@ export class DataService {
   constructor(private http: Http) { }
 
   public endpoint = "http://localhost:3000";
+
+  get(coffeId: string, callback) {
+    this.http.get(`${this.endpoint}/coffees/${coffeId}`)
+      .subscribe(response => {
+        console.log(response.json());
+          callback(response.json());
+      });
+  }
+
   getList(callback) {
     // const list = [
     //     new Coffe("Double Espresso", "Suny Cafe",

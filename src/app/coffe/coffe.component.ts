@@ -13,7 +13,9 @@ import { DataService } from '../data.service';
 export class CoffeComponent implements OnInit {
 
   coffe: Coffe;
+  tastingEnabled: Boolean
   types = ["Expresso", "Rsitretto", "Americano", "Cappucino", "Frape"];
+
 
   constructor(private route: ActivatedRoute,
               private geolocation: GeolocationService,
@@ -45,11 +47,17 @@ export class CoffeComponent implements OnInit {
   ngOnInit() {
     this.coffe = new Coffe();
     this.routingSubscription = this.route.params.subscribe(params => {
-        console.log(params["id"]);
+          if(params['id']) {
+            this.data.get(params['id'], response => {
+              this.coffe = response;
+              if(this.coffe.tastingRating)
+                this.tastingEnabled = true;
+            });
+          }
+
       });
 
     this.geolocation.requestLocation(location => {
-      console.log(location);
       if(location) {
         this.coffe.location.latitude = location.latitude;
         this.coffe.location.longitude = location.longitude;
