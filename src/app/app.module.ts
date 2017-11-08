@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { GeolocationService } from "./geolocation.service";
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
+import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatSliderModule,
@@ -28,7 +29,8 @@ const routes : Routes = [
     CoffeComponent
   ],
   imports: [
-    RouterModule.forRoot(routes), FormsModule,
+    RouterModule.forRoot(routes),
+    FormsModule, HttpModule,
     BrowserModule, BrowserAnimationsModule,
     MatButtonModule, MatIconModule, MatInputModule, MatSelectModule,
     MatSliderModule, MatToolbarModule, MatCardModule, MatSlideToggleModule,
