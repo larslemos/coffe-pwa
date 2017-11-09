@@ -12,7 +12,24 @@ export class AppComponent {
 
     }
 
+    //When app is offline
+    updateNetworkStatusUI() {
+        if(navigator.onLine) {
+            //You migh be online 
+            (document.querySelector("body") as any).style = "";
+        } else {
+            //100% sure you are offline
+            (document.querySelector("body") as any).style = "filter: grayscale(1)";
+        }
+
+    }
+
+
     ngOnInit() {
+      this.updateNetworkStatusUI();
+      window.addEventListener("online", this. updateNetworkStatusUI);
+      window.addEventListener("offline", this. updateNetworkStatusUI);
+
       //to avoid Typescript errors
       if((navigator as any).standalone == false) {
         //for an iOS device and we are in the browser
