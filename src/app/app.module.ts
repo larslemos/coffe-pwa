@@ -15,6 +15,7 @@ import { ListComponent } from './list/list.component';
 import { CoffeComponent } from './coffe/coffe.component';
 import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { ServiceWorkerModule } from "@angular/service-worker";
 
 const routes : Routes = [
     { path: '', component: ListComponent },
@@ -34,7 +35,7 @@ const routes : Routes = [
     BrowserModule, BrowserAnimationsModule,
     MatButtonModule, MatIconModule, MatInputModule, MatSelectModule,
     MatSliderModule, MatToolbarModule, MatCardModule, MatSlideToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule, ServiceWorkerModule
 
   ],
   providers: [GeolocationService, DataService],
